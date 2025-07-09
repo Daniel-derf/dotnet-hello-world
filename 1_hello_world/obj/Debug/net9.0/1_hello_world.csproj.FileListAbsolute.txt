@@ -12,3 +12,4 @@
 /home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_world.pdb
 /home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_world.genruntimeconfig.cache
 /home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/ref/1_hello_world.dll
+/home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_world.sourcelink.json
