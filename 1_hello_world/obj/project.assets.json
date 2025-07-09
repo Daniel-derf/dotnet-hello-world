@@ -1,11 +1,41 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "FluentColorConsole/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/FluentColorConsole.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentColorConsole.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "FluentColorConsole/2.0.1": {
+      "sha512": "beOQn9r0EEDvhvt1nKzUFFlDNPQ13qgdxLpIG21Ewn/8HmyWa4sM8DJcZ7ish17ZEnQJUs9IHvkb29BowUEsuQ==",
+      "type": "package",
+      "path": "fluentcolorconsole/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentcolorconsole.2.0.1.nupkg.sha512",
+        "fluentcolorconsole.nuspec",
+        "lib/netstandard2.0/FluentColorConsole.dll",
+        "lib/netstandard2.0/FluentColorConsole.xml"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "FluentColorConsole >= 2.0.1"
+    ]
   },
   "packageFolders": {
     "/home/daniel/.nuget/packages/": {}
@@ -49,6 +79,12 @@
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
+        "dependencies": {
+          "FluentColorConsole": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

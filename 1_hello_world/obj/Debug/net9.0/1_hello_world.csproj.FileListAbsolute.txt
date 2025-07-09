@@ -13,3 +13,6 @@
 /home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_world.genruntimeconfig.cache
 /home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/ref/1_hello_world.dll
 /home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_world.sourcelink.json
+/home/daniel/Documents/estudo/c#/1_hello_world/bin/Debug/net9.0/FluentColorConsole.dll
+/home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_world.csproj.AssemblyReference.cache
+/home/daniel/Documents/estudo/c#/1_hello_world/obj/Debug/net9.0/1_hello_.99D48B63.Up2Date
