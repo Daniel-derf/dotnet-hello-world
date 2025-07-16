@@ -30,6 +30,13 @@ app.MapGet("/getproductbyheader", (HttpRequest request) =>
   return request.Headers["product-code"].ToString();
 });
 
+app.MapPatch("/editproduct", (Product product) =>
+{
+  var productSaved = ProductRepository.GetBy(product.Code);
+  productSaved.Name = product.Name;
+
+});
+
 app.Run();
 
 public static class ProductRepository
