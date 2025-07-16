@@ -8,6 +8,8 @@ app.MapGet("/user", () => "Daniel Pardinho");
 
 app.MapPost("/saveproduct", (Product product) =>
 {
+  ProductRepository.Add(product);
+
   return product.Code + " - " + product.Name;
 });
 
@@ -18,7 +20,9 @@ app.MapGet("/getproduct", ([FromQuery] string dateStart, [FromQuery] string date
 
 app.MapGet("/getproduct/{code}", ([FromRoute] string code) =>
 {
-  return code;
+  var product = ProductRepository.GetBy(code);
+
+  return product;
 });
 
 app.MapGet("/getproductbyheader", (HttpRequest request) =>
