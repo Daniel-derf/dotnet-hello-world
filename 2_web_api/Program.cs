@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticAssets;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -37,6 +38,12 @@ app.MapPatch("/editproduct", (Product product) =>
 
 });
 
+app.MapDelete("/deleteproduct/{code}", ([FromRoute] string code) =>
+{
+  var product = ProductRepository.GetBy(code);
+  ProductRepository.Remove(product);  
+});
+
 app.Run();
 
 public static class ProductRepository
@@ -54,6 +61,11 @@ public static class ProductRepository
   public static Product GetBy(string code)
   {
     return Products.First(p => p.Code == code);
+  }
+
+  public static void Remove(Product product)
+  {
+    Products.Remove(product);
   }
 }
 
