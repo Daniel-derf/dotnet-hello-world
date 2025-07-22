@@ -10,14 +10,16 @@ app.MapPost("/products", (Product product) =>
 {
   ProductRepository.Add(product);
 
-  return product.Code + " - " + product.Name;
+  return Results.Created($"/products/{product.Code}", product.Code);
 });
 
 app.MapGet("/products/{code}", ([FromRoute] string code) =>
 {
   var product = ProductRepository.GetBy(code);
 
-  return product;
+  if (product != null) return Results.Ok(product);
+
+  return Results.NotFound();
 });
 
 app.MapPatch("/products", (Product product) =>
@@ -25,12 +27,16 @@ app.MapPatch("/products", (Product product) =>
   var productSaved = ProductRepository.GetBy(product.Code);
   productSaved.Name = product.Name;
 
+  return Results.Ok();
+
 });
 
 app.MapDelete("/products/{code}", ([FromRoute] string code) =>
 {
   var product = ProductRepository.GetBy(code);
-  ProductRepository.Remove(product);  
+  ProductRepository.Remove(product);
+
+  return Results.Ok();
 });
 
 app.Run();
