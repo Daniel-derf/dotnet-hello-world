@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApplicationDbContext>();
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
@@ -72,3 +75,21 @@ public class Product
   public string Code { get; set; }
   public string Name { get; set; }
 }
+
+
+public class ApplicationDbContext : DbContext
+{
+  public DbSet<Product> Products { get; set; }
+
+  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseSqlServer("Server=localhost,1433;Database=Products;User ID=sa;Password=@Sql2025;MultipleActiveResultSets=true;Encrypt=YES;TrustServerCertificate=True;");
+}
+
+/*
+
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=@Sql2025" \
+   -p 1433:1433 --name sqlserver --hostname sql1 \
+   -d \
+   mcr.microsoft.com/mssql/server:2025-latest
+
+*/
